@@ -19,5 +19,5 @@ const Car = function (manufacturer, price, engineType) {
 // const lamborghiniUrus = new Car('Lamborghini', 222000, 'Petrol');
 // console.log(lamborghiniUrus.getManufacturer(), lamborghiniUrus.getPrice(), lamborghiniUrus.getEngineType());
 
-
+module.exports = {Car}; 
 
