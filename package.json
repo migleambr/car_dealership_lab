@@ -1,0 +1,16 @@
+{
+  "name": "lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "car_dealership.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "author": "Migle",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.0.3",
+    "jest": "^29.0.3"
+  }
+}
