@@ -2,7 +2,11 @@
 
 const carDealership = require('./car_dealership.js')
 
-const lamborghiniUrus = new carDealership.Car();
+let lamborghiniUrus;
+
+beforeEach( () => {
+    lamborghiniUrus = new carDealership.Car();
+})
 
 describe('testing access to properties in Car object', () => {
 

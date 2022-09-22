@@ -16,8 +16,23 @@ const Car = function (manufacturer, price, engineType) {
     this.setEngineType = (engineType) => _engineType = engineType;
 }
 
-// const lamborghiniUrus = new Car('Lamborghini', 222000, 'Petrol');
-// console.log(lamborghiniUrus.getManufacturer(), lamborghiniUrus.getPrice(), lamborghiniUrus.getEngineType());
+// create a Dealership class with properties:
+    // title
+    // max number of cars
+    // cars in stock
 
-module.exports = {Car}; 
+const Dealership = function (title) {
+    let _title = title;
+    const _maxNumberOfCars = 120;
+    let _stock = [];
+
+    this.getTitle = () => _title;
+    this.setTitle = (title) => _title = title;
+    this.getMaxNumberOfCars = () => _maxNumberOfCars;
+    this.getStock = () => _stock;
+    this.addStock = (car) => _stock.push(car);
+    this.removeStock = (car) => _stock.splice(_stock.indexOf(car), 1);
+}
+
+module.exports = {Car, Dealership}; 
 
