@@ -4,11 +4,13 @@ const carDealership = require('./car_dealership.js')
 
 let lamborghiniUrus;
 let McLaren720S;
+let lamborghiniAventador;
 let myDealership;
 
 beforeEach( () => {
     lamborghiniUrus = new carDealership.Car();
     McLaren720S = new carDealership.Car("McLaren", 315000, "Petrol");
+    lamborghiniAventador = new carDealership.Car("Lamborghini", 390000, "Petrol");
     myDealership = new carDealership.Dealership("Migle's Dealership");
 })
 
@@ -72,4 +74,28 @@ describe('testing adding to stock function', () => {
 
 })
 
+describe('testing function to return all manufacturers', () => {
+
+    test('can get array of manufacturers', () => {
+        lamborghiniUrus.setManufacturer("Lamborghini");
+        myDealership.addStock(lamborghiniUrus);
+        myDealership.addStock(McLaren720S);
+        myDealership.addStock(lamborghiniAventador);
+
+        actual = myDealership.allManufacturers();
+        expected = ["Lamborghini", "McLaren", "Lamborghini"];
+        expect(actual).toEqual(expected);
+    })
+
+    test('can return undefined if no manufacturer is specified', () => {
+        myDealership.addStock(lamborghiniUrus);
+        myDealership.addStock(McLaren720S);
+        myDealership.addStock(lamborghiniAventador);
+        
+        actual = myDealership.allManufacturers();
+        expected = [undefined, "McLaren", "Lamborghini"];
+        expect(actual).toEqual(expected);
+    })
+
+})
 
