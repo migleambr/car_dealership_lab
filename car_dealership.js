@@ -91,8 +91,38 @@ Dealership.prototype.carsByManufacturer = function (manufacturer) {
     return allCars;
 }
 
+// method to find all cars by a specified feature
+Dealership.prototype.carsByFeature = function (carFeature) {
+    this.carFeature = carFeature;
+    let allCars = [];
+    // let car = [];
+    for (i = 0; i < this.countStock(); i++) {
+        if (carFeature === this.getStock()[i].getManufacturer()) {
+            allCars.push(this.getStock()[i]);        
+            // car.push(this.getStock()[i].getManufacturer());
+            // car.push(this.getStock()[i].getPrice()); 
+            // car.push(this.getStock()[i].getEngineType());
+        } 
+        if (carFeature == this.getStock()[i].getPrice()) {
+            allCars.push(this.getStock()[i]);        
+            // car.push(this.getStock()[i].getManufacturer());
+            // car.push(this.getStock()[i].getPrice()); 
+            // car.push(this.getStock()[i].getEngineType());
+        }
+        if (carFeature == this.getStock()[i].getEngineType()) {
+            allCars.push(this.getStock()[i]);        
+            // car.push(this.getStock()[i].getManufacturer());
+            // car.push(this.getStock()[i].getPrice()); 
+            // car.push(this.getStock()[i].getEngineType());
+        }
+    }
+    // return car;
+    return allCars;
+}
+
 // console.log(myDealership.getStock()[0].getManufacturer(), myDealership.getStock()[0].getPrice(), myDealership.getStock()[0].getEngineType());
-console.log(myDealership.carsByManufacturer("Lamborghini"));
+// console.log(myDealership.carsByFeature("Lamborghini"));
+console.log(myDealership.carsByFeature(222000));
 
 // method to find the total value of all the cars in stock
 Dealership.prototype.totalValue = function () {
