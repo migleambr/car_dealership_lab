@@ -120,3 +120,36 @@ describe('testing function to return all cars of given manufacturer', () => {
     })
 
 })
+
+describe('testing function to calculate total stock value', () => {
+
+    test('can calculate 0 if no stock present', () => {
+        actual = myDealership.totalValue();
+        expected = 0;
+        expect(actual).toBe(expected);
+    })
+
+    test('can calculate all stock', () => {
+        lamborghiniUrus.setPrice(222000);
+        myDealership.addStock(lamborghiniUrus);
+        myDealership.addStock(McLaren720S);
+        myDealership.addStock(lamborghiniAventador);
+
+        actual = myDealership.totalValue();
+        expected = 927000;
+        expect(actual).toBe(expected);
+    })
+
+    test('can update stock value if car removed', () => {
+        lamborghiniUrus.setPrice(222000);
+        myDealership.addStock(lamborghiniUrus);
+        myDealership.addStock(McLaren720S);
+        myDealership.addStock(lamborghiniAventador);
+
+        myDealership.removeStock(lamborghiniUrus);
+        actual = myDealership.totalValue();
+        expected = 705000;
+        expect(actual).toBe(expected);
+    })
+
+})
