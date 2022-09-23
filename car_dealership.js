@@ -23,7 +23,7 @@ const Car = function (manufacturer, price, engineType) {
 
 const Dealership = function (title) {
     let _title = title;
-    const _maxNumberOfCars = 120;
+    const _maxNumberOfCars = 3;
     let _stock = [];
 
     this.getTitle = () => _title;
@@ -44,7 +44,11 @@ console.log(myDealership.countStock());
 
 // method to add a car to stock
 Dealership.prototype.addStock = function (Car) {
-    this.getStock().push(Car);
+    if (this.countStock() === this.getMaxNumberOfCars()) {
+        console.log("Exceeded maximum stock capacity!");
+    } else if (this.countStock() < this.getMaxNumberOfCars()) {
+        this.getStock().push(Car);
+    }
 }
 
 const McLaren720S = new Car("McLaren", 315000, "Petrol");
@@ -54,6 +58,9 @@ const lamborghiniAventador = new Car("Lamborghini", 390000, "Petrol");
 myDealership.addStock(McLaren720S);
 myDealership.addStock(lamborghiniUrus);
 myDealership.addStock(lamborghiniAventador);
+console.log(myDealership.countStock());
+
+myDealership.addStock(new Car("", 0, ""));
 console.log(myDealership.countStock());
 
 // method to return an array containing each car's manufacturer

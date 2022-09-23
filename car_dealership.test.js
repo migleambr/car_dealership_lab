@@ -72,6 +72,17 @@ describe('testing adding to stock function', () => {
         expect(actual).toBe(expected);
     })
 
+    test('cannot add more cars than stock capacity', () => {
+        myDealership.addStock(lamborghiniUrus);
+        myDealership.addStock(McLaren720S);
+        myDealership.addStock(lamborghiniAventador);
+        myDealership.addStock(new carDealership.Car());
+
+        actual = myDealership.countStock();
+        expected = 3;
+        expect(actual).toBe(expected);
+    })
+
 })
 
 describe('testing function to return all manufacturers', () => {
