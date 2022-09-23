@@ -39,12 +39,12 @@ Dealership.prototype.countStock = function () {
     return this.getStock().length;
 }
 
-const myDealership = new Dealership("Migle's Dealership");
+let myDealership = new Dealership("Migle's Dealership");
 console.log(myDealership.countStock());
 
 // method to add a car to stock
 Dealership.prototype.addStock = function (Car) {
-    this.getStock().push(Car);
+        this.getStock().push(Car);
 }
 
 const McLaren720S = new Car("McLaren", 315000, "Petrol");
@@ -86,7 +86,6 @@ Dealership.prototype.carsByManufacturer = function (manufacturer) {
 
 // console.log(myDealership.getStock()[0].getManufacturer(), myDealership.getStock()[0].getPrice(), myDealership.getStock()[0].getEngineType());
 console.log(myDealership.carsByManufacturer("Lamborghini"));
-
 
 // method to find the total value of all the cars in stock
 Dealership.prototype.totalValue = function () {
