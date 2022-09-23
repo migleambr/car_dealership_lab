@@ -44,7 +44,7 @@ console.log(myDealership.countStock());
 
 // method to add a car to stock
 Dealership.prototype.addStock = function (Car) {
-        this.getStock().push(Car);
+    this.getStock().push(Car);
 }
 
 const McLaren720S = new Car("McLaren", 315000, "Petrol");

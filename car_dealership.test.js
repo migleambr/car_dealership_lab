@@ -36,7 +36,7 @@ describe('testing access to properties in Car object', () => {
 
 // write tests for Dealership methods
 
-describe('testing stock counting method', () => {
+describe('testing stock counting function', () => {
     
     test('can return 0 if stock is empty', () => {
         actual = myDealership.countStock();
@@ -51,6 +51,25 @@ describe('testing stock counting method', () => {
         expect(actual).toBe(expected);
     })
 
-}) 
+})
+
+describe('testing adding to stock function', () => {
+
+    test('can add a car to stock', () => {
+        myDealership.addStock(lamborghiniUrus);
+        actual = myDealership.countStock();
+        expected = 1;
+        expect(actual).toBe(expected);
+    })
+
+    test('can add more than one car to stock', () => {
+        myDealership.addStock(lamborghiniUrus);
+        myDealership.addStock(McLaren720S);
+        actual = myDealership.countStock();
+        expected = 2;
+        expect(actual).toBe(expected);
+    })
+
+})
 
 
