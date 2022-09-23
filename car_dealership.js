@@ -109,7 +109,7 @@ Dealership.prototype.carsByFeature = function (carFeature) {
             // car.push(this.getStock()[i].getPrice()); 
             // car.push(this.getStock()[i].getEngineType());
         }
-        if (carFeature == this.getStock()[i].getEngineType()) {
+        if (carFeature === this.getStock()[i].getEngineType()) {
             allCars.push(this.getStock()[i]);        
             // car.push(this.getStock()[i].getManufacturer());
             // car.push(this.getStock()[i].getPrice()); 
