@@ -99,3 +99,24 @@ describe('testing function to return all manufacturers', () => {
 
 })
 
+describe('testing function to return all cars of given manufacturer', () => {
+
+    test('can return correct number of cars if 2 cars available', () => {
+        lamborghiniUrus.setManufacturer("Lamborghini");
+        myDealership.addStock(lamborghiniUrus);
+        myDealership.addStock(McLaren720S);
+        myDealership.addStock(lamborghiniAventador);
+
+        lamborghiniCars = myDealership.carsByManufacturer("Lamborghini");
+        actual = lamborghiniCars.length;
+        expected = 2;
+        expect(actual).toBe(expected);
+    })
+
+    test('can return 0 if no cars of specified manufacturer in stock', () => {
+        actual = myDealership.carsByManufacturer("Ferrari").length;
+        expected = 0;
+        expect(actual).toBe(expected);
+    })
+
+})
